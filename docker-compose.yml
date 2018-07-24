@@ -22,9 +22,9 @@ services:
       - ./tmp:/var/www/html/wp-content
       - type: bind
         source: .
-        target: /var/www/html/wp-content/plugins/wp-my
+        target: /var/www/html/wp-content/plugins/wp-my-plugin
     ports:
-      - "6464:80"
+      - "8080:80"
     restart: always
     environment:
       WORDPRESS_DB_HOST: wp_my_plugin_db:3306
