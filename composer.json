@@ -1,0 +1,22 @@
+{
+  "name": "my-plugin/wordpress",
+  "description": "Plugin for wordpress",
+  "type": "plugin",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Cristian Salazar",
+      "email": "caxvalencia@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "My_Plugin\\WP\\": "src/"
+    }
+  },
+  "require": {
+    "php": "^5.6 || ^7.0"
+  },
+  "require-dev": {
+  }
+}
