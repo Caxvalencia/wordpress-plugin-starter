@@ -11,7 +11,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "My_Plugin\\WP\\": "src/"
+      "MyPlugin\\WP\\": "src/"
     }
   },
   "require": {
