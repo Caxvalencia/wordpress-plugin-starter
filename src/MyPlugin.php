@@ -20,7 +20,7 @@ class MyPlugin
     public static $pluginUrl;
 
     /**
-     * Sails constructor.
+     * MyPlugin constructor.
      *
      * @param $file
      */
