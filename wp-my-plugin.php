@@ -34,7 +34,13 @@ if (!defined('ABSPATH')) {
 
 function init_wp_my_plugin()
 {
-//    load_plugin_textdomain('wp-my-plugin', false, dirname(plugin_basename(__FILE__)) . '/languages/');
+
+    load_plugin_textdomain(
+        'wp-my-plugin',
+        false,
+        dirname(plugin_basename(__FILE__)) . '/languages/'
+    );
+
     require_once(__DIR__ . '/vendor/autoload.php');
 
     return \MyPlugin\WP\MyPlugin::getInstance(__FILE__);
