@@ -40,4 +40,19 @@ function init_wp_my_plugin()
     return \MyPlugin\WP\MyPlugin::getInstance(__FILE__);
 }
 
+function activate_my_plugin()
+{
+    require_once(__DIR__ . '/vendor/autoload.php');
+    \MyPlugin\WP\MyPlugin::activate();
+}
+
+function deactivate_my_plugin()
+{
+    require_once(__DIR__ . '/vendor/autoload.php');
+    \MyPlugin\WP\MyPlugin::deactivate();
+}
+
+register_activation_hook(__FILE__, 'activate_my_plugin');
+register_deactivation_hook(__FILE__, 'deactivate_my_plugin');
+
 add_action('plugins_loaded', 'init_wp_my_plugin', 0);

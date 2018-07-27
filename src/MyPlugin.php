@@ -41,4 +41,12 @@ class MyPlugin
 
         include_once(self::$pluginPath . 'views/' . $path);
     }
+
+    public static function activate()
+    {
+    }
+
+    public static function deactivate()
+    {
+    }
 }
