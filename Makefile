@@ -17,7 +17,7 @@ rebuild: down
 
 .PHONY: install
 install: up
-	docker exec -u 1000:1000 -it $(CONTAINER_WP) composer install -d ./wp-content/plugins/wp-my
+	docker exec -u 1000:1000 -it $(CONTAINER_WP) composer install -d ./wp-content/plugins/wp-my-plugin
 
 .PHONY: mysql
 mysql:
