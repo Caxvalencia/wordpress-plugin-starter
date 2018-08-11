@@ -1,0 +1,10 @@
+FROM composer:latest
+
+COPY . /app
+
+RUN apk --no-cache add --update zip \
+	&& composer install --no-dev
+
+#ENTRYPOINT ["zip"]
+
+#CMD ["-h"]

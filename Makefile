@@ -3,6 +3,11 @@
 CONTAINER_WP = wp_my_plugin_wordpress
 CONTAINER_DB = wp_my_plugin_db
 
+UID = $(shell id -u)
+UGROUP_NAME = $(shell id -g -n)
+DOCKER_USER = $(UID):$(shell id -g)
+CONTAINER_BUILD = wp_my_plugin_build
+
 .PHONY: up
 up:
 	docker-compose up -d
@@ -30,3 +35,14 @@ bash:
 .PHONY: wp-cli
 wp-cli:
 	docker exec -u www-data -it $(CONTAINER_WP) bash
+
+.PHONY: generate-dist
+generate-dist:
+	mkdir -p ./dist
+	docker build -f Dockerfile.build -t $(CONTAINER_BUILD) .
+	docker run --rm --interactive --tty \
+		--user $(DOCKER_USER) \
+		--volume $(PWD)/dist:/app/dist \
+		$(CONTAINER_BUILD) bash -c "zip -r /app/dist/wp-my-plugin.zip ."
+
+	@echo "Distribuition generated in wp-my-plugin.zip"
